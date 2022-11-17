@@ -16,3 +16,8 @@ gradle-app.setting
 
 .project
 .classpath
+*.xml
+gradlew.bat
+gradlew
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
