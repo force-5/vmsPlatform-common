@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url "https://repo1.maven.org/maven2/" }
+        mavenLocal()
+        mavenCentral()
+
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+
+plugins {
+    id 'groovy'
+    id 'maven-publish'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url "https://repo1.maven.org/maven2/" }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    //implementation 'org.apache.groovy:groovy:4.0.2'
+    // https://mvnrepository.com/artifact/org.codehaus.groovy/groovy
+    implementation 'org.codehaus.groovy:groovy:3.0.12'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.force5.platform.common'
+            artifactId = 'vmsPlatform-common'
+            version = '0.1'
+
+            from components.java
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
