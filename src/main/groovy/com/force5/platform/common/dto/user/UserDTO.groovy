@@ -9,7 +9,7 @@ import groovy.transform.TupleConstructor
 @ToString
 @EqualsAndHashCode
 @CompileStatic
-@TupleConstructor()
+@TupleConstructor(includeSuperProperties = true )
 class UserDTO extends AbstractDTO {
     String username
 }
